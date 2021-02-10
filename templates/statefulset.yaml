@@ -101,6 +101,8 @@ spec:
           mountPath: /orientdb/databases
         - name: config
           mountPath: /orientdb/config
+        - name: plugins
+          mountPath: /orientdb/plugins
         {{- if .Values.volumeClaims.backup.mount }}
         - name: backup
           mountPath: /orientdb/backup
@@ -126,6 +128,10 @@ spec:
       - name: orientdb-config-cm-vol
         configMap:
           name: {{ .Values.orientdbConfigMapName }}
+      - name: plugins
+        hostPath:
+          path: /plugins
+          type: Directory
       {{- if .Values.ssl.enable }}
       - name: orientdb-ssl-secret-vol
         secret:
