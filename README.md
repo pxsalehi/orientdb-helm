@@ -1,3 +1,5 @@
+>**This Helm chart has been migrated to https://github.com/orientechnologies/orientdb-helm.**
+
 # orientdb-helm
 Helm chart for OrientDB.
 
